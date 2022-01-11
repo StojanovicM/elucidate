@@ -1,0 +1,16 @@
+$mainBackground: #282c34;
+$lightGray: #e1e1e1;
+$colorPrimary: #7547a7;
+$colorIntermediate: #4d6d85;
+$colorExtended: #af5757;
+
+@mixin phone {
+  @media (max-width: 860px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}

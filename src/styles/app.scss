@@ -1,0 +1,224 @@
+@import "./variables.scss";
+
+header {
+  display: flex;
+  align-items: center;
+  height: 75px;
+  background-color: $mainBackground;
+  color: white;
+  .react-logo {
+    height: 54px;
+    margin-left: 10px;
+    pointer-events: none;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: app-logo-spin infinite 20s linear;
+    }
+  }
+  p {
+    font-size: 22px;
+  }
+}
+
+main {
+  width: 88%;
+  max-width: 1366px;
+  margin: 0 auto;
+  overflow: hidden;
+  @include tablet {
+    width: 98%;
+  }
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 685px;
+  margin-top: 25px;
+  padding-bottom: 50px;
+  @include tablet {
+    min-height: unset;
+    padding-bottom: 0;
+    overflow-x: scroll;
+  }
+  .table-total {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  table {
+    align-self: center;
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    border-collapse: collapse;
+    @include tablet {
+      align-self: flex-start;
+      width: 1024px;
+    }
+    thead {
+      border: 1px solid $mainBackground;
+    }
+    tbody {
+      border: 1px solid $lightGray;
+    }
+    tr {
+      &:nth-of-type(odd) {
+        background: $lightGray;
+      }
+    }
+    th,
+    td {
+      position: relative;
+      white-space: nowrap;
+      &:nth-of-type(2) {
+        width: 200px;
+      }
+      &:nth-of-type(3) {
+        width: 100px;
+      }
+      &:nth-of-type(4),
+      &:nth-of-type(5),
+      &:nth-of-type(6) {
+        width: 150px;
+      }
+      i {
+        position: absolute;
+        top: calc(50% - 7px);
+      }
+      &.align-right {
+        padding-right: 20px;
+      }
+      &.align-left {
+        padding-left: 20px;
+      }
+    }
+    th {
+      padding-top: 18px;
+      padding-bottom: 14px;
+      background: $mainBackground;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    td {
+      padding-top: 8px;
+      padding-bottom: 5px;
+      &.color-primary {
+        color: $colorPrimary;
+      }
+      &.color-intermediate {
+        color: $colorIntermediate;
+      }
+      &.color-extended {
+        color: $colorExtended;
+      }
+    }
+  }
+  .pagination {
+    width: fit-content;
+    margin-top: auto !important;
+    align-self: center;
+    @include tablet {
+      display: none !important;
+    }
+  }
+}
+
+#filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: max-content;
+  height: 150px;
+  margin: 35px 0 20px;
+  @include tablet {
+    height: auto;
+  }
+  .filter-row {
+    display: flex;
+    width: 100%;
+    margin-top: 4px;
+    &:nth-last-child(-n + 2) {
+      margin-left: 25px;
+      @include tablet {
+        margin-left: 0;
+      }
+    }
+    label {
+      display: flex;
+      width: 150px;
+      padding: 10px 20px 10px 10px;
+      background: $mainBackground;
+      color: white;
+      text-align: left;
+      i {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+    }
+  }
+  .input-wrapper {
+    width: calc(100% - 150px);
+    > .dropdown,
+    > .number-input,
+    > .input {
+      width: 200px;
+      margin: 2px 0 0 20px;
+    }
+  }
+}
+
+#emptyTableNotice {
+  margin: 50px auto;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.pie-chart-wrapper {
+  width: 250px;
+  padding-bottom: 30px;
+  @include tablet {
+    margin: 0 auto;
+  }
+  h6 {
+    font-size: 14px;
+  }
+  .legend-wrapper {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .legend {
+    display: flex;
+    padding-right: 25px;
+    font-size: 18px;
+    &.primary:before {
+      background: $colorPrimary;
+    }
+    &.extended:before {
+      background: $colorExtended;
+    }
+    &.intermediate:before {
+      background: $colorIntermediate;
+    }
+    &:before {
+      content: "";
+      position: relative;
+      display: block;
+      width: 15px;
+      height: 15px;
+      top: 3px;
+      left: -5px;
+    }
+  }
+}
+
+@keyframes app-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
